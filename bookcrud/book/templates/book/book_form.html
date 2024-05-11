@@ -1,0 +1,15 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Book</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    {% if form.instance.cover_image %}
+        <img src="{{ form.instance.cover_image.url }}" class="img-thumbnail" alt="Book Cover">
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock %}

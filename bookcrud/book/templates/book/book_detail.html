@@ -1,0 +1,11 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+<h1>{{ book.title }}</h1>
+<p><strong>Author:</strong> {{ book.author }}</p>
+<p><strong>Publication Date:</strong> {{ book.publication_date }}</p>
+{% if book.cover_image %}
+    <img src="{{ book.cover_image.url }}" alt="Book Cover" class="img-fluid">
+{% endif %}
+<a href="{% url 'book_list' %}" class="btn btn-secondary">Back to List</a>
+{% endblock %}
